@@ -1,4 +1,6 @@
 import * as photoloader from "./lib/photoloader.js";
+import * as ui from "./lib/ui.js";
+import {displayPicture} from "./lib/ui.js";
 
 
 const getPicture = function(idPicture){
@@ -10,6 +12,7 @@ const getPicture = function(idPicture){
                 console.log(data.photo.titre);
                 console.log(data.photo.url.href);
                 console.log(data.photo.type);
+                displayPicture(data.photo);
             });
         }
         else{
@@ -22,4 +25,5 @@ const getPicture = function(idPicture){
 }
 
 getPicture(105);
+
 
