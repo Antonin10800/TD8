@@ -44,7 +44,6 @@ img {
 
 /* Styles pour le titre de la ressource */
 #ressource h2 {
-    font-size: 20px;
     color: #333;
 }
 
@@ -95,4 +94,21 @@ img {
 /* Couleur du texte des éléments de la ressource */
 #ressource li {
     color: #666;
+}
+
+.comment {
+    margin-top: 10px;
+    background-color: #e6e6e6; /* Couleur de fond du rectangle */
+    border: 2px solid red; /* Bordure du rectangle */
+}
+
+#pseudo {
+    font-size: 20px;
+    color: grey;
+}
+
+#titre {
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
 }
