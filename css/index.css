@@ -2,3 +2,97 @@ img {
     max-width: 100%;
     height: auto;
 }
+/* Styles pour la section principale */
+#photo {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Styles pour le titre de la photo */
+#photo h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+/* Styles pour la section de la photo */
+#la_photo {
+    margin-top: 20px;
+}
+
+/* Styles pour l'image */
+#la_photo img {
+    width: 40%;
+}
+
+/* Styles pour les informations */
+#infos {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Styles pour la catégorie */
+#la_categorie {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #555;
+}
+
+/* Styles pour la ressource */
+#ressource {
+    margin-top: 20px;
+}
+
+/* Styles pour le titre de la ressource */
+#ressource h2 {
+    font-size: 20px;
+    color: #333;
+}
+
+/* Styles pour les éléments de la ressource */
+#ressource ul {
+    list-style: none;
+    padding: 0;
+}
+
+#ressource li {
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #666;
+}
+
+/* Couleurs personnalisées */
+
+/* Couleur de fond de la section principale */
+#photo {
+    background-color: #f2f2f2;
+}
+
+/* Couleur de fond de la ressource */
+#ressource {
+    background-color: #e6e6e6;
+}
+
+/* Couleur du texte du titre de la photo */
+#photo h1 {
+    color: #333;
+}
+
+/* Couleur du texte des informations */
+#infos {
+    color: #777;
+}
+
+/* Couleur du texte de la catégorie */
+#la_categorie {
+    color: #555;
+}
+
+/* Couleur du texte du titre de la ressource */
+#ressource h2 {
+    color: #333;
+}
+
+/* Couleur du texte des éléments de la ressource */
+#ressource li {
+    color: #666;
+}
