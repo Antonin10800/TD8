@@ -9,6 +9,7 @@ const getPicture = function (idPicture) {
         ui.displayPicture(response.photo);
 
         getResource(response);
+        getComments(response);
 
     });
     pr.catch(function (error) {
@@ -21,10 +22,7 @@ function getResource(dataImg) {
 
     let pr = photoloader.loadResource(dataImg.links.categorie.href, parsedLink);
     pr.then(function (response) {
-
-
             ui.displayRessource(response);
-
         }
     );
 }
