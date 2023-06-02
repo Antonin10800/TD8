@@ -10,6 +10,7 @@ const getPicture = function(idPicture){
             response.json().then(function(data){
 
                 ui.displayPicture(data.photo);
+
                 getResource(data);
             });
         }
@@ -23,14 +24,13 @@ const getPicture = function(idPicture){
 }
 
 function getResource(dataImg){
-    let parsedLink = parsLink();
+    let parsedLink = ui.parsLink();
 
     let pr = photoloader.loadResource(dataImg.links.categorie.href, parsedLink);
     pr.then(function(response){
         if(response.status == 200){
-            response.json().then(function(data){
-                ui.displayResource(data);
-            });
+
+            ui.displayRessource(response);
         }
         else{
             console.log("Error " + response.status);
@@ -41,17 +41,8 @@ function getResource(dataImg){
 
 function getComments(dataImg){
     let pr = photoloader.loadComments(dataImg.links.comments.href);
-    pr.then(function(response){
-        if(response.status == 200){
-            response.json().then(function(data){
-                ui.displayComments(data);
-            });
-        }
-        else{
-            console.log("Error " + response.status);
-        }
-    }
-    );
+    ui.displayComments(pr);
+
 }
 
 
