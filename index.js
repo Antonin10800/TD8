@@ -1,18 +1,17 @@
 import * as photoloader from "./lib/photoloader.js";
 import * as ui from "./lib/ui.js";
-import {displayPicture} from "./lib/ui.js";
+import {displayPicture, parsLink} from "./lib/ui.js";
 
 
 const getPicture = function(idPicture){
     let pr = photoloader.loadPicture(idPicture);
-    console.log(pr.status);
+
         pr.then(function(response){
         if(response.status == 200){
             response.json().then(function(data){
-                console.log(data.photo.titre);
-                console.log(data.photo.url.href);
-                console.log(data.photo.type);
+
                 displayPicture(data.photo);
+                getResource(data);
             });
         }
         else{
@@ -24,6 +23,12 @@ const getPicture = function(idPicture){
     });
 }
 
+function getResource(dataImg){
+    let parsedLink = parsLink();
+
+    let pr = photoloader.loadResource(dataImg.links.categorie.href, parsedLink);
+    console.log(pr);
+}
 getPicture(105);
 
 
