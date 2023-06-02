@@ -2,46 +2,36 @@ import * as photoloader from "./lib/photoloader.js";
 import * as ui from "./lib/ui.js";
 
 
-const getPicture = function(idPicture){
+const getPicture = function (idPicture) {
     let pr = photoloader.loadPicture(idPicture);
 
-        pr.then(function(response){
-        if(response.status == 200){
-            response.json().then(function(data){
+    pr.then(function (response) {
+        ui.displayPicture(response.photo);
 
-                ui.displayPicture(data.photo);
+        getResource(response);
 
-                getResource(data);
-            });
-        }
-        else{
-            console.log("Error " + response.status);
-        }
     });
-    pr.catch(function(error){
-        console.log(error);
+    pr.catch(function (error) {
+        console.log("Error getPicture" + error);
     });
 }
 
-function getResource(dataImg){
+function getResource(dataImg) {
     let parsedLink = ui.parsLink();
 
     let pr = photoloader.loadResource(dataImg.links.categorie.href, parsedLink);
-    pr.then(function(response){
-        if(response.status == 200){
+    pr.then(function (response) {
+
 
             ui.displayRessource(response);
+
         }
-        else{
-            console.log("Error " + response.status);
-        }
-    }
     );
 }
 
-function getComments(dataImg){
+function getComments(dataImg) {
     let pr = photoloader.loadComments(dataImg.links.comments.href);
-    ui.displayComments(pr);
+    // ui.displayComments(pr);
 
 }
 
