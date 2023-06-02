@@ -10,7 +10,6 @@ const getPicture = function(idPicture){
             response.json().then(function(data){
 
                 ui.displayPicture(data.photo);
-                ui.displayRessource(data.photo);
                 getResource(data);
             });
         }
@@ -39,6 +38,23 @@ function getResource(dataImg){
     }
     );
 }
+
+function getComments(dataImg){
+    let pr = photoloader.loadComments(dataImg.links.comments.href);
+    pr.then(function(response){
+        if(response.status == 200){
+            response.json().then(function(data){
+                ui.displayComments(data);
+            });
+        }
+        else{
+            console.log("Error " + response.status);
+        }
+    }
+    );
+}
+
+
 getPicture(105);
 
 
