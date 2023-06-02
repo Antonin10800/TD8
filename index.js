@@ -2,6 +2,7 @@ import * as photoloader from "./lib/photoloader.js";
 import * as ui from "./lib/ui.js";
 
 
+
 const getPicture = function(idPicture){
     let pr = photoloader.loadPicture(idPicture);
 
@@ -12,6 +13,7 @@ const getPicture = function(idPicture){
                 ui.displayPicture(data.photo);
 
                 getResource(data);
+                getComments(data);
             });
         }
         else{
@@ -28,8 +30,7 @@ function getResource(dataImg){
 
     let pr = photoloader.loadResource(dataImg.links.categorie.href, parsedLink);
     pr.then(function(response){
-        if(response.status == 200){
-
+        if(response.ok){
             ui.displayRessource(response);
         }
         else{
@@ -40,8 +41,11 @@ function getResource(dataImg){
 }
 
 function getComments(dataImg){
-    let pr = photoloader.loadComments(dataImg.links.comments.href);
-    ui.displayComments(pr);
+    let pasrsedLink = ui.parsLink();
+    let pr = photoloader.loadComments(dataImg.links.comments.href, pasrsedLink);
+    pr.then(function(data){
+        ui.displayComments(data);
+    });
 
 }
 
