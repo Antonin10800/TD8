@@ -1,6 +1,5 @@
 import * as photoloader from "./lib/photoloader.js";
 import * as ui from "./lib/ui.js";
-import {displayPicture, parsLink} from "./lib/ui.js";
 
 
 const getPicture = function(idPicture){
@@ -10,7 +9,8 @@ const getPicture = function(idPicture){
         if(response.status == 200){
             response.json().then(function(data){
 
-                displayPicture(data.photo);
+                ui.displayPicture(data.photo);
+                ui.displayRessource(data.photo);
                 getResource(data);
             });
         }
