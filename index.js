@@ -27,7 +27,17 @@ function getResource(dataImg){
     let parsedLink = parsLink();
 
     let pr = photoloader.loadResource(dataImg.links.categorie.href, parsedLink);
-    console.log(pr);
+    pr.then(function(response){
+        if(response.status == 200){
+            response.json().then(function(data){
+                ui.displayResource(data);
+            });
+        }
+        else{
+            console.log("Error " + response.status);
+        }
+    }
+    );
 }
 getPicture(105);
 
