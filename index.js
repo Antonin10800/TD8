@@ -1,5 +1,9 @@
 import * as photoloader from "./lib/photoloader.js";
 import * as ui from "./lib/ui.js";
+import * as gallery from "./lib/gallery.js";
+import {load} from "./lib/gallery.js";
+
+import {url} from "./lib/conf.js";
 
 
 const getPicture = function (idPicture) {
@@ -38,5 +42,5 @@ function getComments(dataImg){
 
 
 getPicture(105);
-
+load(url);
 
