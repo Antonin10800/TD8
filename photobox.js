@@ -24,6 +24,7 @@ const getGallerie = function (url , action) {
 };
 
 
+
 const getPicture = function (idPicture) {
     let pr = photoloader.loadPicture(idPicture);
 
@@ -80,3 +81,4 @@ vignette.addEventListener('click', function (event) {
 });
 
  */
+
