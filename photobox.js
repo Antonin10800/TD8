@@ -9,4 +9,7 @@ const getGallerie = function () {
     })
 };
 
-getGallerie();
+const load = document.getElementById('load_gallery');
+load.addEventListener('click', getGallerie);
+
+//getGallerie();
