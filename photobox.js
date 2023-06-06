@@ -15,7 +15,7 @@ const getGallerie = function (url , action) {
             pr = prev();
             break;
         default:
-            pr = load(url);
+            pr =    load(url);
     }
 
     pr.then(function (data) {
@@ -58,12 +58,25 @@ function getComments(dataImg){
 
 }
 
-const charger = document.getElementById('load_gallery');
-charger.addEventListener('click', getGallerie(conf.url));
 
+const charger = document.getElementById('load_gallery');
+//charger.addEventListener('click', getGallerie(conf.url));
+
+/*
 const suivant = document.getElementById('next_page');
 suivant.addEventListener('click', getGallerie(conf.url, 'suivant'));
 
 const precedent = document.getElementById('previous_page');
 precedent.addEventListener('click', getGallerie(conf.url, 'precedent'));
+*/
 
+/*
+const vignette = document.querySelector('.vignette');
+vignette.addEventListener('click', function (event) {
+
+    let idPicture = event.target.getAttribute('data-photoId');
+    console.log(idPicture);
+    getPicture(idPicture);
+});
+
+ */
