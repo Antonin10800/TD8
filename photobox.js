@@ -4,9 +4,14 @@ import * as photoloader from "./lib/photoloader.js";
 import * as photo_ui from "./lib/photo_ui.js";
 
 
-const getGallerie = function () {
+const getGallerie = function (action) {
     let pr = gallerie.load()
-
+    switch (action){
+        case 'load':
+            pr.then(function (data) {
+                gallerie_ui.display_gallerie(data)
+            })
+    }
     pr.then(function (data) {
         gallerie_ui.display_gallerie(data)
     })
