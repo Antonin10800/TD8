@@ -2,28 +2,15 @@ import * as gallerie from './lib/gallery.js';
 import * as gallerie_ui from './lib/gallery_ui.js';
 import * as photoloader from "./lib/photoloader.js";
 import * as photo_ui from "./lib/photo_ui.js";
-import * as conf from "./lib/conf.js";
-import {prev,next,load} from "./lib/gallery.js";
 
-const getGallerie = function (url , action) {
-    let pr;
-    switch (action){
-        case 'suivant':
-            pr = next();
-            break;
-        case 'precedent':
-            pr = prev();
-            break;
-        default:
-            pr =    load(url);
-    }
+
+const getGallerie = function () {
+    let pr = gallerie.load()
 
     pr.then(function (data) {
         gallerie_ui.display_gallerie(data)
     })
 };
-
-
 
 const getPicture = function (idPicture) {
     let pr = photoloader.loadPicture(idPicture);
@@ -59,9 +46,8 @@ function getComments(dataImg){
 
 }
 
-
-const charger = document.getElementById('load_gallery');
-//charger.addEventListener('click', getGallerie(conf.url));
+const charger = document.getElementById('load_gallery')
+charger.addEventListener('click', getGallerie)
 
 /*
 const suivant = document.getElementById('next_page');
@@ -81,4 +67,3 @@ vignette.addEventListener('click', function (event) {
 });
 
  */
-
