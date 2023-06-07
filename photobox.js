@@ -2,20 +2,43 @@ import * as gallerie from './lib/gallery.js';
 import * as gallerie_ui from './lib/gallery_ui.js';
 import * as photoloader from "./lib/photoloader.js";
 import * as photo_ui from "./lib/photo_ui.js";
+import * as conf from "./lib/conf.js";
 
 
-const getGallerie = function (action) {
+const getGallerie = function () {
     let pr = gallerie.load()
-    switch (action){
-        case 'load':
-            pr.then(function (data) {
-                gallerie_ui.display_gallerie(data)
-            })
-    }
     pr.then(function (data) {
         gallerie_ui.display_gallerie(data)
     })
 };
+const first = function () {
+    let pr = gallerie.loadFirst()
+    pr.then(function (data) {
+        gallerie_ui.display_gallerie(data)
+    })
+}
+
+const last = function () {
+    let pr = gallerie.loadLast()
+    pr.then(function (data) {
+        gallerie_ui.display_gallerie(data)
+    })
+}
+
+const next = function () {
+    let pr = gallerie.loadNext()
+    pr.then(function (data) {
+        gallerie_ui.display_gallerie(data)
+    })
+}
+
+const prev = function () {
+    let pr = gallerie.loadPrev()
+    pr.then(function (data) {
+        gallerie_ui.display_gallerie(data)
+    })
+}
+
 
 const getPicture = function (idPicture) {
     let pr = photoloader.loadPicture(idPicture);
@@ -33,7 +56,7 @@ const getPicture = function (idPicture) {
 }
 
 function getResource(dataImg) {
-    let parsedLink = photo_ui.parsLink();
+    let parsedLink = conf.parsLink();
 
     let pr = photoloader.loadResource(dataImg.links.categorie.href, parsedLink);
     pr.then(function (response) {
@@ -43,7 +66,7 @@ function getResource(dataImg) {
 }
 
 function getComments(dataImg){
-    let pasrsedLink = photo_ui.parsLink();
+    let pasrsedLink = conf.parsLink();
     let pr = photoloader.loadComments(dataImg.links.comments.href, pasrsedLink);
     pr.then(function(data){
         photo_ui.displayComments(data);
@@ -51,16 +74,21 @@ function getComments(dataImg){
 
 }
 
-const charger = document.getElementById('load_gallery')
-charger.addEventListener('click', getGallerie)
+const bt_load = document.getElementById('load_gallery')
+bt_load.addEventListener('click', getGallerie)
 
-/*
-const suivant = document.getElementById('next_page');
-suivant.addEventListener('click', getGallerie(conf.url, 'suivant'));
 
-const precedent = document.getElementById('previous_page');
-precedent.addEventListener('click', getGallerie(conf.url, 'precedent'));
-*/
+const bt_next = document.getElementById('next_page');
+bt_next.addEventListener('click', next);
+
+const bt_prev = document.getElementById('previous_page');
+bt_prev.addEventListener('click', prev);
+
+const bt_first = document.getElementById('first_page');
+bt_first.addEventListener('click', first);
+
+const bt_last = document.getElementById('last_page');
+bt_last.addEventListener('click', last);
 
 /*
 const vignette = document.querySelector('.vignette');

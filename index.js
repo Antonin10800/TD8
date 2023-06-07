@@ -1,5 +1,6 @@
 import * as photoloader from "./lib/photoloader.js";
 import * as photo_ui from "./lib/photo_ui.js";
+import * as conf from "./lib/conf.js";
 
 
 
@@ -19,7 +20,7 @@ const getPicture = function (idPicture) {
 }
 
 function getResource(dataImg) {
-    let parsedLink = photo_ui.parsLink();
+    let parsedLink = conf.parsLink();
 
     let pr = photoloader.loadResource(dataImg.links.categorie.href, parsedLink);
     pr.then(function (response) {
@@ -29,8 +30,8 @@ function getResource(dataImg) {
 }
 
 function getComments(dataImg){
-    let pasrsedLink = photo_ui.parsLink();
-    let pr = photoloader.loadComments(dataImg.links.comments.href, pasrsedLink);
+    let parsedLink = conf.parsLink();
+    let pr = photoloader.loadComments(dataImg.links.comments.href, parsedLink);
     pr.then(function(data){
         photo_ui.displayComments(data);
     });
