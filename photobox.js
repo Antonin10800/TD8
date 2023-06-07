@@ -108,13 +108,12 @@ bt_first.addEventListener('click', first);
 const bt_last = document.getElementById('last_page');
 bt_last.addEventListener('click', last);
 
-/*
-const vignette = document.querySelector('.vignette');
-vignette.addEventListener('click', function (event) {
 
-    let idPicture = event.target.getAttribute('data-photoId');
-    console.log(idPicture);
-    getPicture(idPicture);
-});
-
- */
+const vignette = document.querySelectorAll('.vignette');
+vignette.forEach((elem) => {
+    elem.addEventListener('click', function (event) {
+        let idPicture = event.target.getAttribute('data-photoId');
+        console.log(idPicture);
+        getPicture(idPicture);
+    })
+})
