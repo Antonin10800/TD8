@@ -4,11 +4,13 @@ import * as photoloader from "./lib/photoloader.js";
 import * as photo_ui from "./lib/photo_ui.js";
 import * as conf from "./lib/conf.js";
 
+//grisage des boutons inactif au début
 document.querySelectorAll('.bt2').forEach((elem) => {
     elem.disabled = true;
 })
 
-
+//appel de la fonction de chargempent de la gallerie
+// et appel de la fonction d'affichage de la gallerie
 const getGallerie = function () {
     let pr = gallerie.load()
     pr.then(function (data) {
@@ -19,6 +21,8 @@ const getGallerie = function () {
     })
     document.getElementById('load_gallery').disabled = true;
 };
+
+//appel de la fonction de chargement de la première page et de son affichage
 const first = function () {
     let pr = gallerie.loadFirst()
     pr.then(function (data) {
@@ -26,6 +30,7 @@ const first = function () {
     })
 }
 
+//appel de la fonction de chargement de la dernière page et de son affichage
 const last = function () {
     let pr = gallerie.loadLast()
     pr.then(function (data) {
@@ -33,6 +38,7 @@ const last = function () {
     })
 }
 
+//appel de la fonction de chargement de la page suivante et de son affichage
 const next = function () {
     let pr = gallerie.loadNext()
     pr.then(function (data) {
@@ -40,6 +46,7 @@ const next = function () {
     })
 }
 
+//appel de la fonction de chargement de la page précédente et de son affichage
 const prev = function () {
     let pr = gallerie.loadPrev()
     pr.then(function (data) {
@@ -47,7 +54,7 @@ const prev = function () {
     })
 }
 
-
+//appel de la fonction de chargement d'une image et de son affichage
 const getPicture = function (idPicture) {
     let pr = photoloader.loadPicture(idPicture);
 
@@ -63,6 +70,7 @@ const getPicture = function (idPicture) {
     });
 }
 
+//appel de la fonction de chargement des ressources d'une image et de son affichage
 function getResource(dataImg) {
     let parsedLink = conf.parsLink();
 
@@ -73,6 +81,7 @@ function getResource(dataImg) {
     );
 }
 
+//appel de la fonction de chargement des commentaires d'une image et de son affichage
 function getComments(dataImg){
     let pasrsedLink = conf.parsLink();
     let pr = photoloader.loadComments(dataImg.links.comments.href, pasrsedLink);
@@ -82,6 +91,7 @@ function getComments(dataImg){
 
 }
 
+//ajout des évènements sur les boutons
 const bt_load = document.getElementById('load_gallery')
 bt_load.addEventListener('click', getGallerie)
 
