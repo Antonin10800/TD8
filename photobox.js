@@ -55,7 +55,7 @@ const prev = function () {
 }
 
 //appel de la fonction de chargement d'une image et de son affichage
-const getPicture = function (idPicture) {
+export const getPicture = function (idPicture) {
     let pr = photoloader.loadPicture(idPicture);
 
     pr.then(function (response) {
@@ -110,7 +110,9 @@ bt_last.addEventListener('click', last);
 
 
 const vignette = document.querySelectorAll('.vignette');
+
 vignette.forEach((elem) => {
+    console.log(elem);
     elem.addEventListener('click', function (event) {
         let idPicture = event.target.getAttribute('data-photoId');
         console.log(idPicture);
