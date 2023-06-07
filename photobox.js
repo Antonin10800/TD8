@@ -4,12 +4,20 @@ import * as photoloader from "./lib/photoloader.js";
 import * as photo_ui from "./lib/photo_ui.js";
 import * as conf from "./lib/conf.js";
 
+document.querySelectorAll('.bt2').forEach((elem) => {
+    elem.disabled = true;
+})
+
 
 const getGallerie = function () {
     let pr = gallerie.load()
     pr.then(function (data) {
         gallerie_ui.display_gallerie(data)
     })
+    document.querySelectorAll('.bt2').forEach((elem) => {
+        elem.disabled = false;
+    })
+    document.getElementById('load_gallery').disabled = true;
 };
 const first = function () {
     let pr = gallerie.loadFirst()
