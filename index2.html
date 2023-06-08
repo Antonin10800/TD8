@@ -1,53 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+    <head>
+        <meta charset="UTF-8" />
 
-    <link rel="stylesheet"   href="css/photobox.css">
-    <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/photobox.css" />
+        <link rel="stylesheet" href="css/index.css" />
 
-    <title>photobox</title>
-</head>
-<body>
+        <title>photobox</title>
+    </head>
+    <body>
+        <nav>
+            <div class="buttons">
+                <button id="load_gallery">load</button>
+                <button class="bt2" id="first_page">first</button>
+                <button class="bt2" id="previous_page">prev</button>
+                <button class="bt2" id="next_page">next</button>
+                <button class="bt2" id="last_page">last</button>
+            </div>
+            <!--  <div class="pagesize">-->
+            <!--    <label for="page_size_input">taille des pages : </label><input id="page_size_input"  type="number" value="10">-->
+            <!--  </div>-->
+        </nav>
 
-<nav>
-  <div class="buttons">
+        <main id="gallery">
+            <div class="gallery-container" id="gallery_container"></div>
+        </main>
 
-    <button id="load_gallery">load</button>
-    <button class="bt2" id="first_page">first </button>
-    <button class="bt2" id="previous_page">prev </button>
-    <button class="bt2" id="next_page">next </button>
-    <button class="bt2" id="last_page">last </button>
+        <div id="la_photo">
+            <img src="" />
+            <p id="infos"></p>
+        </div>
 
-  </div>
-<!--  <div class="pagesize">-->
-<!--    <label for="page_size_input">taille des pages : </label><input id="page_size_input"  type="number" value="10">-->
-<!--  </div>-->
-</nav>
-
-
-<main id="gallery">
-
-     <div class="gallery-container" id="gallery_container">
-
-
-
-     </div>
-
-</main>
-
-
-
-    <div id="la_photo">
-        <img src="">
-        <p id="infos"></p>
-
-
-    </div>
-
-
-
-<script type="module" src="photobox.js"></script>
-
-</body>
+        <script type="module" src="photobox.js"></script>
+    </body>
 </html>

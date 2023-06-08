@@ -109,13 +109,4 @@ const bt_last = document.getElementById('last_page');
 bt_last.addEventListener('click', last);
 
 
-const vignette = document.querySelectorAll('.vignette');
 
-vignette.forEach((elem) => {
-    console.log(elem);
-    elem.addEventListener('click', function (event) {
-        let idPicture = event.target.getAttribute('data-photoId');
-        console.log(idPicture);
-        getPicture(idPicture);
-    })
-})
