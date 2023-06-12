@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "esbuild": "^0.18.1"
+  },
+  "scripts": {
+    "build": "esbuild photobox.js --bundle --outfile=photobox.bundle.js"
+  }
+}
